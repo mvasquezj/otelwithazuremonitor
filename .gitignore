@@ -416,3 +416,17 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+# --- JetBrains IDEs ---
+.idea/
+*.iml
+out/
+# Plugins y metadata
+.idea_modules/
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/usage.statistics.xml
+.idea/**/shelf/
+.idea/**/dictionaries/
+.idea/**/libraries/
+.idea/.idea.*.dir/

@@ -1,0 +1,6 @@
+@ApiWithAzureMonitorOtel_HostAddress = http://localhost:5014
+
+GET {{ApiWithAzureMonitorOtel_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
