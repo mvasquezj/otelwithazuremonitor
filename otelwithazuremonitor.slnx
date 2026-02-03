@@ -1,3 +1,5 @@
 <Solution>
   <Project Path="ApiWithAzureMonitorOtel/ApiWithAzureMonitorOtel.csproj" />
+  <Project Path="OtelApi2/OtelApi2.csproj" />
+  <Project Path="ServiceDefault/ServiceDefault.csproj" />
 </Solution>

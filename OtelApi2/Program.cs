@@ -1,4 +1,3 @@
-using ApiWithAzureMonitorOtel;
 using OpenTelemetry;
 using ServiceDefault;
 
@@ -8,11 +7,6 @@ var builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 builder.AddServiceDefaults();
-    
-builder.Services.AddHttpClient<Otel2APIClient>(options =>
-{
-    options.BaseAddress = new Uri("https://localhost:7026");
-});
 
 var app = builder.Build();
 
@@ -29,9 +23,9 @@ var summaries = new[]
     "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
 };
 
-app.MapGet("/weatherforecast", (ILogger<Program> logger) =>
+app.MapGet("/api2weatherforecast", (ILogger<Program> logger) =>
     {
-        logger.LogInformation("Getting weather forecast");
+        logger.LogInformation("Getting weather forecast from api otel 2");
         var forecast = Enumerable.Range(1, 5).Select(index =>
                 new WeatherForecast
                 (
@@ -44,19 +38,11 @@ app.MapGet("/weatherforecast", (ILogger<Program> logger) =>
     })
     .WithName("GetWeatherForecast");
 
-
-app.MapGet("/fromapi", async (ILogger<Program> logger, Otel2APIClient  apiClient) =>
-    {
-        logger.LogInformation("call from remote api");
-        return await apiClient.Api2weatherforecast();
-    })
-    .WithName("FromApi");
-
 app.MapDefaultEndpoints();
 
 app.Run();
 
-public record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
+record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
 {
     public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
 }

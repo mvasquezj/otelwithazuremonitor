@@ -4,7 +4,7 @@
         <TargetFramework>net10.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
-        <UserSecretsId>c96f2a72-9e31-488f-957c-9b2f95cc2ab2</UserSecretsId>
+        <UserSecretsId>a1d11421-1533-4aae-807f-717d9de8a937</UserSecretsId>
     </PropertyGroup>
 
     <ItemGroup>
@@ -14,4 +14,5 @@
     <ItemGroup>
       <ProjectReference Include="..\ServiceDefault\ServiceDefault.csproj" />
     </ItemGroup>
+
 </Project>
